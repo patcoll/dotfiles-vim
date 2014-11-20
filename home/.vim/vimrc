@@ -124,8 +124,9 @@ nnoremap <leader><space> :set hlsearch! hlsearch?<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 if !exists("NERDTreeIgnore")
   let NERDTreeIgnore=[]
+  let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 endif
-let NERDTreeIgnore+=['\.pyc$', '^\.DS_Store$']
+let NERDTreeIgnore+=['^\.DS_Store$']
 let NERDTreeIgnore+=['^__pycache__$']
 
 " toggle line numbers
