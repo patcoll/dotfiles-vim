@@ -122,6 +122,11 @@ nnoremap <leader><space> :set hlsearch! hlsearch?<CR>
 
 " leader-n will toggle nerdtree
 nnoremap <leader>n :NERDTreeToggle<CR>
+if !exists("NERDTreeIgnore")
+  let NERDTreeIgnore=[]
+endif
+let NERDTreeIgnore+=['\.pyc$', '^\.DS_Store$']
+let NERDTreeIgnore+=['^__pycache__$']
 
 " toggle line numbers
 nnoremap <leader>N :set number! number?<CR>
