@@ -1,0 +1,6 @@
+#!/bin/bash -x
+here="$(dirname ${BASH_SOURCE})"
+if [ ! -e $here/bundle/Vundle.vim ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git $here/bundle/Vundle.vim
+fi
+vim +BundleInstall +qa

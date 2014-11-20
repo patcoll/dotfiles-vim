@@ -1,0 +1,5 @@
+/bundle/*
+/runtime/undo/*
+/runtime/backup/*
+/runtime/swap/*
+.netrwhist
