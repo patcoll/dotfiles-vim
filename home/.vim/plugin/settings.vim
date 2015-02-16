@@ -11,8 +11,9 @@ set encoding=utf-8    " Set default encoding to UTF-8
 " default color for line numbers.
 highlight LineNr ctermfg=236
 
-set cursorline
-highlight CursorLine cterm=NONE ctermbg=234 
+" airline config
+set laststatus=2 " show status bar all the time
+set noshowmode " don't show default mode indicator, airline will do this for us.
 
 ""
 "" Whitespace
