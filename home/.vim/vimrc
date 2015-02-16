@@ -90,6 +90,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 let mapleader = ","
+let maplocalleader = ","
 
 " Shortcut for NERDCommenter.
 nmap <leader>/ :call NERDComment(0, "invert")<cr>
