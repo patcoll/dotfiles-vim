@@ -92,9 +92,9 @@ filetype plugin indent on    " required
 let mapleader = ","
 let maplocalleader = ","
 
-" Shortcut for NERDCommenter.
-nmap <leader>/ :call NERDComment(0, "invert")<cr>
-vmap <leader>/ :call NERDComment(0, "invert")<cr>
+" Shortcut for commenting.
+nmap <leader>/ :TComment<cr>j
+vmap <leader>/ :TComment<cr>
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
