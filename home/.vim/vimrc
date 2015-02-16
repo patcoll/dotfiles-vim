@@ -200,3 +200,5 @@ augroup phpSyntaxOverride
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
 
+nmap =j :%!python -m json.tool<CR>
+
