@@ -171,6 +171,9 @@ nnoremap 7t 7gt
 nnoremap 8t 8gt
 nnoremap 9t 9gt
 
+" no spaces when using shift-j to join lines together
+set nojoinspaces
+
 let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
