@@ -125,6 +125,7 @@ endif
 
 " map semicolon to colon for less typing when we want to save
 nnoremap ; :
+vnoremap ; :
 
 " Make vertical split bar line character be a single space.
 set fillchars+=vert:\|
