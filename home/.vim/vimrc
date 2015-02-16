@@ -127,6 +127,14 @@ endif
 nnoremap ; :
 vnoremap ; :
 
+" Shows autocomplete menu for commands
+set wildmenu
+
+"Completion list settings
+" First time tab is hit, complete the longest common string
+" Second time tab is hit, list all possible matches
+set wildmode=longest,list
+
 " Make vertical split bar line character be a single space.
 set fillchars+=vert:\|
 
