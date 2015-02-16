@@ -169,9 +169,9 @@ let g:syntastic_mode_map={ 'mode': 'active',
 
 let g:syntastic_warning_symbol='?>'
 
-if isdirectory(argv(0))
+if isdirectory(resolve(expand(argv(0))))
   bd
-  autocmd VimEnter * exe "cd" argv(0)
+  autocmd VimEnter * exe "cd" resolve(expand(argv(0)))
   autocmd VimEnter * NERDTree
 endif
 
