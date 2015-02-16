@@ -110,7 +110,18 @@ set noequalalways
 nnoremap / /\v
 vnoremap / /\v
 
+set background=dark
+" colorscheme MyTwilight
 colorscheme twilight256
+" colorscheme base16-default
+" colorscheme base16-ocean
+" colorscheme distinguished
+" hi Comment ctermbg=NONE ctermfg=238
+
+if has("gui_running")
+  colorscheme MyTwilight
+  set guifont=Monaco:h14
+endif
 
 " map semicolon to colon for less typing when we want to save
 nnoremap ; :
