@@ -92,6 +92,8 @@ filetype plugin indent on    " required
 let mapleader = ","
 let maplocalleader = ","
 
+set iskeyword=@,48-57,_,192-255,$ ",-
+
 " Shortcut for commenting.
 nmap <leader>/ :TComment<cr>j
 vmap <leader>/ :TComment<cr>
