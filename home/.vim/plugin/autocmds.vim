@@ -3,3 +3,5 @@ if has("autocmd")
     au FocusLost * silent! wall
   endif
 endif
+
+au BufRead,BufNewFile Berksfile se ft=ruby
