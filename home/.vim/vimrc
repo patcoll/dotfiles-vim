@@ -15,6 +15,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'scrooloose/nerdcommenter'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'itspriddle/ZoomWin'
 Plugin 'ervandew/supertab'
@@ -70,6 +71,7 @@ Plugin 'wting/rust.vim'
 Plugin 'tpope/vim-speeddating'
 Plugin 'jceb/vim-orgmode'
 Plugin 'chriskempson/base16-vim'
+Plugin 'ryanss/vim-hackernews'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
