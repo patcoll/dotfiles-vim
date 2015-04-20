@@ -72,6 +72,9 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'jceb/vim-orgmode'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ryanss/vim-hackernews'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'markcornick/vim-bats'
+Plugin 'cespare/vim-toml'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
