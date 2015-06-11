@@ -21,6 +21,7 @@ Plugin 'itspriddle/ZoomWin'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-repeat'
 Plugin 'godlygeek/tabular'
+Plugin 'terryma/vim-expand-region'
 
 " snipmate
 Plugin 'tomtom/tlib_vim'
@@ -207,3 +208,5 @@ augroup END
 
 nmap =j :%!python -m json.tool<CR>
 
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
