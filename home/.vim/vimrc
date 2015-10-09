@@ -76,6 +76,8 @@ Plugin 'ryanss/vim-hackernews'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'markcornick/vim-bats'
 Plugin 'cespare/vim-toml'
+Plugin 'jimmyhchan/dustjs.vim'
+Plugin 'evidens/vim-twig'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -158,6 +160,10 @@ if !exists("NERDTreeIgnore")
 endif
 let NERDTreeIgnore+=['^\.DS_Store$']
 let NERDTreeIgnore+=['^__pycache__$']
+
+" shortcuts for common soft tab sizes
+nnoremap <leader>2 :se ts=2 sts=2 sw=2 et ai nosi nocin<CR>
+nnoremap <leader>4 :se ts=4 sts=4 sw=4 et ai nosi nocin<CR>
 
 " toggle line numbers
 nnoremap <leader>N :set number! number?<CR>
