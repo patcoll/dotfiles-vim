@@ -78,6 +78,7 @@ Plugin 'markcornick/vim-bats'
 Plugin 'cespare/vim-toml'
 Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'evidens/vim-twig'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -219,3 +220,10 @@ nmap =j :%!python -m json.tool<CR>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" unlet g:ctrlp_custom_ignore
+" unlet g:ctrlp_user_command
+" set your own custom ignore settings
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|tmp$\|log$\|dist$\|node_modules$\|\.\?gems\?$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
