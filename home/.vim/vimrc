@@ -69,16 +69,18 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'zah/nimrod.vim'
 Plugin 'wting/rust.vim'
-Plugin 'tpope/vim-speeddating'
-Plugin 'jceb/vim-orgmode'
+" Plugin 'tpope/vim-speeddating'
+" Plugin 'jceb/vim-orgmode'
 Plugin 'chriskempson/base16-vim'
-Plugin 'ryanss/vim-hackernews'
+" Plugin 'ryanss/vim-hackernews'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'markcornick/vim-bats'
 Plugin 'cespare/vim-toml'
-Plugin 'jimmyhchan/dustjs.vim'
+" Plugin 'jimmyhchan/dustjs.vim'
 Plugin 'evidens/vim-twig'
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
+" Plugin 'Chiel92/vim-autoformat'
+" Plugin 'jaxbot/semantic-highlight.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -227,3 +229,13 @@ vmap <C-v> <Plug>(expand_region_shrink)
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|tmp$\|log$\|dist$\|node_modules$\|\.\?gems\?$',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+let ruby_no_expensive = 1
+let ruby_minlines = 100
+
+" let g:formatterpath = ['/usr/local/bin']
+" vnoremap <leader>a :Autoformat<CR>
+" vnoremap <leader>a :Autoformat<CR>
+" noremap <leader>a :Autoformat<CR>
+
+" let g:airline_section_b = '%{fugitive#head()}'
