@@ -81,6 +81,7 @@ Plugin 'evidens/vim-twig'
 " Plugin 'mileszs/ack.vim'
 " Plugin 'Chiel92/vim-autoformat'
 " Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'dustinfarris/vim-htmlbars-inline-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -239,3 +240,4 @@ let ruby_minlines = 100
 " noremap <leader>a :Autoformat<CR>
 
 " let g:airline_section_b = '%{fugitive#head()}'
+autocmd BufRead,BufNewFile *.js HighlightInlineHbs
