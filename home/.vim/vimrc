@@ -82,6 +82,7 @@ Plugin 'evidens/vim-twig'
 " Plugin 'Chiel92/vim-autoformat'
 " Plugin 'jaxbot/semantic-highlight.vim'
 Plugin 'dustinfarris/vim-htmlbars-inline-syntax'
+Plugin 'yalesov/vim-emblem'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -197,6 +198,7 @@ let g:syntastic_mode_map={ 'mode': 'active',
                      \ 'active_filetypes': [],
                      \ 'passive_filetypes': ['html'] }
 
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_warning_symbol='?>'
 
 if isdirectory(resolve(expand(argv(0))))

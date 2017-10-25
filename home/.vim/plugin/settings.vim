@@ -86,6 +86,6 @@ set wildignore+=*.swp,*~,._*
 "" Backup and swap files
 ""
 
-set directory=~/.vim/runtime/swap " Swap files directory.
-set backupdir=~/.vim/runtime/backup " Swap files directory.
+" set directory=~/.vim/runtime/swap " Swap files directory.
+" set backupdir=~/.vim/runtime/backup " Swap files directory.
 
