@@ -5,7 +5,7 @@ should be able to do:
 
     ./install
 
-which will install Vundle, then install all plugins configured in `vimrc`.
+which will install the plugin manager, then install all plugins configured in `vimrc`.
 
 thats it.
 
