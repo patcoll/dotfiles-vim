@@ -9,7 +9,6 @@ which will install Vundle, then install all plugins configured in `vimrc`.
 
 thats it.
 
-## caveats
+## requirements
 
-i believe the vim cmd-line options this uses requires vim 7.4+, though i'm not
-positive.
+deoplete has specific vim requirements. check that repo for more details.
