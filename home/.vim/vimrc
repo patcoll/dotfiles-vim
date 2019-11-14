@@ -9,26 +9,14 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'terryma/vim-multiple-cursors'
-" Plug 'scrooloose/nerdcommenter'
 Plug 'tomtom/tcomment_vim'
 Plug 'itspriddle/ZoomWin'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
-Plug 'godlygeek/tabular'
 Plug 'terryma/vim-expand-region'
 
-" snipmate
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-
 Plug 'bling/vim-airline'
-Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bronson/vim-trailing-whitespace'
-" Plug 'tpope/vim-surround'
 
 " File formats
 Plug 'ap/vim-css-color', { 'for': 'css' }
@@ -38,9 +26,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
-" Plug 'vim-scripts/Arduino-syntax-file'
-" Plug 'guns/vim-clojure-static'
-" Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
@@ -50,39 +35,26 @@ Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
 Plug 'tpope/vim-git'
 
 Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
-" Plug 'tpope/vim-haml'
-" Plug 'wlangstroth/vim-haskell'
+Plug 'wlangstroth/vim-haskell', { 'for': 'haskell' }
 Plug 'pangloss/vim-javascript'
-let g:javascript_plugin_jsdoc = 1
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
-" Plug 'dsawardekar/ember.vim'
+" Ember
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'dustinfarris/vim-htmlbars-inline-syntax'
 
 Plug 'mmalecki/vim-node.js'
-Plug 'ajf/puppet-vim'
 Plug 'tpope/vim-rails'
 Plug 'skwp/vim-rspec'
 Plug 'vim-ruby/vim-ruby'
-Plug 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-Plug 'zah/nim.vim'
-Plug 'wting/rust.vim'
-" Plug 'tpope/vim-speeddating'
-" Plug 'jceb/vim-orgmode'
-" Plug 'ryanss/vim-hackernews'
-" Plug 'Matt-Deacalion/vim-systemd-syntax'
-" Plug 'markcornick/vim-bats'
-" Plug 'cespare/vim-toml'
-" Plug 'jimmyhchan/dustjs.vim'
-Plug 'evidens/vim-twig'
-" Plug 'mileszs/ack.vim'
-" Plug 'Chiel92/vim-autoformat'
-" Plug 'jaxbot/semantic-highlight.vim'
-" Plug 'yalesov/vim-emblem'
+Plug 'zah/nim.vim', { 'for': 'nim' }
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'evidens/vim-twig', { 'for': 'twig' }
 
 " {{{ Colorschemes
 Plug 'chriskempson/base16-vim'
@@ -104,8 +76,31 @@ let g:vim_jsx_pretty_highlight_close_tag = 1
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 let g:prettier#exec_cmd_async = 1
 
-" Plug 'mattn/emmet-vim'
-Plug 'machakann/vim-swap'
+" {{{ Autocomplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" deoplete tab-complete
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+let g:deoplete#enable_at_startup = 1
+
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+
+" Intellisense engine
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" }}}
 
 " Initialize plugin system
 call plug#end()
