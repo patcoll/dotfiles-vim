@@ -139,9 +139,6 @@ set noequalalways
 nnoremap / /\v
 vnoremap / /\v
 
-" Single-key repeat last macro
-" nnoremap \ @@
-
 set background=dark
 " colorscheme MyTwilight
 colorscheme twilight256
