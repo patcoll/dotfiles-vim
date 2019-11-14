@@ -156,7 +156,7 @@ if has("gui_running")
   set guifont=Monaco:h14
 endif
 
-" map semicolon to colon for less typing when we want to save
+" map semicolon to colon for less typing
 nnoremap ; :
 vnoremap ; :
 
