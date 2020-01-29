@@ -1,7 +1,12 @@
 #!/bin/bash -x
 here="$(dirname ${BASH_SOURCE})"
+
+# For deoplete:
+# pip3 install --user --upgrade pynvim
+
 if [ ! -e $here/autoload/plug.vim  ]; then
   curl -fLo $here/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
-vim +PlugInstall +qa
+
+vim +PlugClean +PlugInstall +qa

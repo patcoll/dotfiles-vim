@@ -3,7 +3,7 @@
 ""
 
 set nocompatible      " Use vim, no vi defaults
-set nonumber            " Show line numbers
+set number            " Show line numbers
 set ruler             " Show line and column number
 syntax enable         " Turn on syntax highlighting allowing local overrides
 set encoding=utf-8    " Set default encoding to UTF-8
@@ -52,7 +52,7 @@ set smartcase   " ... unless they contain at least one capital letter
 "" Undo
 ""
 set undofile
-set undodir=~/.vim/runtime/undo
+set undodir=~/.vim/runtime/undo//,/tmp//
 set undolevels=1000
 set undoreload=10000
 
@@ -86,6 +86,6 @@ set wildignore+=*.swp,*~,._*
 "" Backup and swap files
 ""
 
-" set directory=~/.vim/runtime/swap " Swap files directory.
-" set backupdir=~/.vim/runtime/backup " Swap files directory.
+set directory=~/.vim/runtime/swap//,/tmp// " Swap files directory.
+set backupdir=~/.vim/runtime/backup//,/tmp// " Backup files directory.
 

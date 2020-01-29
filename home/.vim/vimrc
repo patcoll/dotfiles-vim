@@ -5,16 +5,44 @@ filetype off
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
-Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tomtom/tcomment_vim'
-Plug 'itspriddle/ZoomWin'
-Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-expand-region'
+Plug 'thaerkh/vim-workspace'
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_autosave = 0
 
-Plug 'bling/vim-airline'
+" Plug 'luochen1990/rainbow'
+" Plug 'frazrepo/vim-rainbow'
+" let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+" let g:rainbow_load_separately = [
+"     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+"     \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+"     \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+"     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+"     \ ]
+" let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+" let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'orange', 'magenta']
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Syntax checkers
+" Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
+" \   'javascript': ['prettier', 'eslint'],
+" \   'css': ['prettier'],
+let g:ale_fixers = {
+\   'rust': ['rustfmt'],
+\   'elixir': ['mix_format'],
+\}
+let g:ale_fix_on_save = 1
+
+" Plug 'kien/ctrlp.vim'
+" Plug 'tpope/vim-fugitive'
+Plug 'tomtom/tcomment_vim'
+" Plug 'itspriddle/ZoomWin'
+Plug 'tpope/vim-repeat'
+" Plug 'terryma/vim-expand-region'
+
+Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -37,7 +65,7 @@ Plug 'tpope/vim-git'
 Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 Plug 'wlangstroth/vim-haskell', { 'for': 'haskell' }
 Plug 'pangloss/vim-javascript'
-Plug 'tpope/vim-liquid'
+" Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " Ember
@@ -45,19 +73,18 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'dustinfarris/vim-htmlbars-inline-syntax'
 
-Plug 'mmalecki/vim-node.js'
-Plug 'tpope/vim-rails'
-Plug 'skwp/vim-rspec'
-Plug 'vim-ruby/vim-ruby'
+" Plug 'mmalecki/vim-node.js'
+" Plug 'tpope/vim-rails'
+" Plug 'skwp/vim-rspec'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
-Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'evidens/vim-twig', { 'for': 'twig' }
+" Plug 'evidens/vim-twig', { 'for': 'twig' }
 
 " {{{ Colorschemes
-Plug 'chriskempson/base16-vim'
 Plug 'vim-scripts/twilight256.vim'
 " }}}
 
@@ -73,33 +100,42 @@ let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' ch
 Plug 'maxmellon/vim-jsx-pretty'
 let g:vim_jsx_pretty_highlight_close_tag = 1
 
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-let g:prettier#exec_cmd_async = 1
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" let g:prettier#exec_cmd_async = 1
 
 " {{{ Autocomplete
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" deoplete
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+
+" deoplete options
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#max_list = 8
+" let g:deoplete#auto_complete_delay = 300
+" let g:deoplete#auto_refresh_delay = 300
 
 " deoplete tab-complete
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-let g:deoplete#enable_at_startup = 1
+" deoplete tabnine
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
-" Intellisense engine
+" COC Intellisense engine
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
 " }}}
 
 " Initialize plugin system
@@ -120,28 +156,23 @@ set iskeyword=@,48-57,_,192-255,$ ",-
 nmap <leader>/ :TComment<cr>j
 vmap <leader>/ :TComment<cr>
 
-nmap <leader>P :Prettier<cr>
+" nmap <leader>P :Prettier<cr>
 
 " ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
+" map <Leader><Leader> :ZoomWin<CR>
 
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
+" set noequalalways
 
 " Searching
 nnoremap / /\v
 vnoremap / /\v
 
-set background=dark
-" colorscheme MyTwilight
+" set background=dark
+
 colorscheme twilight256
-" colorscheme base16-default
-" colorscheme base16-twilight
-" colorscheme base16-ocean
-" colorscheme distinguished
-" hi Comment ctermbg=NONE ctermfg=238
 
 if has("gui_running")
   colorscheme MyTwilight
@@ -204,12 +235,12 @@ nnoremap 9t 9gt
 " set nojoinspaces
 " nnoremap J gJdiw
 
-let g:syntastic_mode_map={ 'mode': 'active',
-                     \ 'active_filetypes': [],
-                     \ 'passive_filetypes': ['html'] }
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_warning_symbol='?>'
+" let g:syntastic_mode_map={ 'mode': 'active',
+"                      \ 'active_filetypes': [],
+"                      \ 'passive_filetypes': ['html'] }
+"
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_warning_symbol='?>'
 
 if isdirectory(resolve(expand(argv(0))))
   bd
@@ -239,9 +270,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " unlet g:ctrlp_custom_ignore
 " unlet g:ctrlp_user_command
 " set your own custom ignore settings
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|tmp$\|log$\|dist$\|node_modules$\|\.\?gems\?$',
-    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+" let g:ctrlp_custom_ignore = {
+"     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|tmp$\|log$\|dist$\|node_modules$\|\.\?gems\?$',
+"     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 
 let ruby_no_expensive = 1
 let ruby_minlines = 100
@@ -251,5 +282,10 @@ let ruby_minlines = 100
 " vnoremap <leader>a :Autoformat<CR>
 " noremap <leader>a :Autoformat<CR>
 
-let g:airline_section_b = '%{fugitive#head()}'
-autocmd BufRead,BufNewFile *.js HighlightInlineHbs
+" let g:airline_section_b = '%{fugitive#head()}'
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+
+" Format Go
+au BufRead,BufNewFile *.go se noet ci pi sts=0 sw=2 ts=2
