@@ -8,41 +8,31 @@ call plug#begin('~/.vim/plugged')
 Plug 'thaerkh/vim-workspace'
 let g:workspace_session_directory = $HOME . '/.vim/sessions/'
 let g:workspace_autosave = 0
-
-" Plug 'luochen1990/rainbow'
-" Plug 'frazrepo/vim-rainbow'
-" let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-" let g:rainbow_load_separately = [
-"     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-"     \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-"     \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-"     \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-"     \ ]
-" let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-" let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'orange', 'magenta']
+let g:workspace_persist_undo_history = 1
+let g:workspace_undodir=$HOME . '/.vim/runtime/undodir/'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'godlygeek/tabular'
 
 " Syntax checkers
-" Plug 'scrooloose/syntastic'
 Plug 'dense-analysis/ale'
-" \   'javascript': ['prettier', 'eslint'],
 " \   'css': ['prettier'],
 let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
 \   'rust': ['rustfmt'],
 \   'elixir': ['mix_format'],
 \}
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+" nnoremap <leader>f :ALEFix<CR>
+" nmap <leader>f :ALEFix<cr>
+nmap =f :ALEFix<CR>
+" vmap <leader>f :ALEFix<cr>
 
-" Plug 'kien/ctrlp.vim'
-" Plug 'tpope/vim-fugitive'
 Plug 'tomtom/tcomment_vim'
-" Plug 'itspriddle/ZoomWin'
 Plug 'tpope/vim-repeat'
-" Plug 'terryma/vim-expand-region'
 
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -65,24 +55,19 @@ Plug 'tpope/vim-git'
 Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 Plug 'wlangstroth/vim-haskell', { 'for': 'haskell' }
 Plug 'pangloss/vim-javascript'
-" Plug 'tpope/vim-liquid'
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown'
 
 " Ember
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'joukevandermaas/vim-ember-hbs'
 Plug 'dustinfarris/vim-htmlbars-inline-syntax'
 
-" Plug 'mmalecki/vim-node.js'
-" Plug 'tpope/vim-rails'
-" Plug 'skwp/vim-rspec'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'zah/nim.vim', { 'for': 'nim' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-" Plug 'evidens/vim-twig', { 'for': 'twig' }
 
 " {{{ Colorschemes
 Plug 'vim-scripts/twilight256.vim'
@@ -96,56 +81,14 @@ let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 
 " Pick one of these two...
-" Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
 let g:vim_jsx_pretty_highlight_close_tag = 1
-
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-" let g:prettier#exec_cmd_async = 1
-
-" {{{ Autocomplete
-" deoplete
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-" deoplete options
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#max_list = 8
-" let g:deoplete#auto_complete_delay = 300
-" let g:deoplete#auto_refresh_delay = 300
-
-" deoplete tab-complete
-" inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" deoplete tabnine
-" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-
-
-" COC Intellisense engine
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-
-" }}}
 
 " Initialize plugin system
 call plug#end()
 
 " load the plugin and indent settings for the detected filetype
 filetype plugin indent on    " required
-
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
 
 let mapleader = ","
 let maplocalleader = ","
@@ -156,21 +99,15 @@ set iskeyword=@,48-57,_,192-255,$ ",-
 nmap <leader>/ :TComment<cr>j
 vmap <leader>/ :TComment<cr>
 
-" nmap <leader>P :Prettier<cr>
-
-" ZoomWin configuration
-" map <Leader><Leader> :ZoomWin<CR>
-
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
+""" Don't automatically make windows equal sizes.
 " set noequalalways
 
 " Searching
 nnoremap / /\v
 vnoremap / /\v
-
-" set background=dark
 
 colorscheme twilight256
 
@@ -201,14 +138,14 @@ nnoremap <leader><space> :set hlsearch! hlsearch?<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 if !exists("NERDTreeIgnore")
   let NERDTreeIgnore=[]
-  let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
+  let NERDTreeIgnore=['node_modules', '\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 endif
 let NERDTreeIgnore+=['^\.DS_Store$']
 let NERDTreeIgnore+=['^__pycache__$']
 
 " shortcuts for common soft tab sizes
-nnoremap <leader>2 :se ts=2 sts=2 sw=2 et ai nosi nocin<CR>
-nnoremap <leader>4 :se ts=4 sts=4 sw=4 et ai nosi nocin<CR>
+" nnoremap <leader>2 :se ts=2 sts=2 sw=2 et ai nosi nocin<CR>
+" nnoremap <leader>4 :se ts=4 sts=4 sw=4 et ai nosi nocin<CR>
 
 " toggle line numbers
 nnoremap <leader>N :set number! number?<CR>
@@ -231,17 +168,6 @@ nnoremap 7t 7gt
 nnoremap 8t 8gt
 nnoremap 9t 9gt
 
-" no spaces when using shift-j to join lines together
-" set nojoinspaces
-" nnoremap J gJdiw
-
-" let g:syntastic_mode_map={ 'mode': 'active',
-"                      \ 'active_filetypes': [],
-"                      \ 'passive_filetypes': ['html'] }
-"
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_warning_symbol='?>'
-
 if isdirectory(resolve(expand(argv(0))))
   bd
   autocmd VimEnter * exe "cd" resolve(expand(argv(0)))
@@ -252,40 +178,27 @@ au BufNewFile,BufRead *.php setlocal expandtab shiftwidth=4 softtabstop=4
 
 " Put at the very end of your .vimrc file.
 
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
+" function! PhpSyntaxOverride()
+"   hi! def link phpDocTags  phpDefine
+"   hi! def link phpDocParam phpType
+" endfunction
+"
+" augroup phpSyntaxOverride
+"   autocmd!
+"   autocmd FileType php call PhpSyntaxOverride()
+" augroup END
 
 nmap =j :%!python -m json.tool<CR>
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" unlet g:ctrlp_custom_ignore
-" unlet g:ctrlp_user_command
-" set your own custom ignore settings
-" let g:ctrlp_custom_ignore = {
-"     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|bower_components$\|tmp$\|log$\|dist$\|node_modules$\|\.\?gems\?$',
-"     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
+" Ruby options
 let ruby_no_expensive = 1
 let ruby_minlines = 100
-
-" let g:formatterpath = ['/usr/local/bin']
-" vnoremap <leader>a :Autoformat<CR>
-" vnoremap <leader>a :Autoformat<CR>
-" noremap <leader>a :Autoformat<CR>
-
-" let g:airline_section_b = '%{fugitive#head()}'
 
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
-" Format Go
+" Go files
 au BufRead,BufNewFile *.go se noet ci pi sts=0 sw=2 ts=2
