@@ -17,6 +17,10 @@ Plug 'godlygeek/tabular'
 " Syntax checkers
 Plug 'dense-analysis/ale'
 " \   'css': ['prettier'],
+let g:ale_linters = {
+\   'javascriptreact': ['eslint'],
+\   'javascript': ['eslint'],
+\}
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'rust': ['rustfmt'],
