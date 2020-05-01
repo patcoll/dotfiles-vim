@@ -1,6 +1,3 @@
 /bundle/*
-/runtime/undo/*
-/runtime/undodir/*
-/runtime/backup/*
-/runtime/swap/*
+/runtime/*
 .netrwhist
