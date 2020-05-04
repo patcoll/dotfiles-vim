@@ -166,8 +166,8 @@ let NERDTreeIgnore+=['^\.DS_Store$']
 let NERDTreeIgnore+=['^__pycache__$']
 
 " shortcuts for common soft tab sizes
-" nnoremap <leader>2 :se ts=2 sts=2 sw=2 et ai nosi nocin<CR>
-" nnoremap <leader>4 :se ts=4 sts=4 sw=4 et ai nosi nocin<CR>
+nnoremap <leader>2 :se ts=2 sts=2 sw=2 et ai nosi nocin<CR>
+nnoremap <leader>4 :se ts=4 sts=4 sw=4 et ai nosi nocin<CR>
 
 " toggle line numbers
 nnoremap <leader>N :set number! number?<CR>
@@ -182,16 +182,22 @@ nnoremap <leader>t :tabc<CR>
 nnoremap <tab> %
 vnoremap <tab> %
 
-" numbered tab shortcuts
-" nnoremap 1t 1gt
-" nnoremap 2t 2gt
-" nnoremap 3t 3gt
-" nnoremap 4t 4gt
-" nnoremap 5t 5gt
-" nnoremap 6t 6gt
-" nnoremap 7t 7gt
-" nnoremap 8t 8gt
-" nnoremap 9t 9gt
+nnoremap <C-t> :tabnew<CR>
+
+" browse to tab to the left or right
+nnoremap <M-[> gT
+nnoremap <M-]> gt
+
+" browse to numbered tab
+nnoremap <M-1> 1gt
+nnoremap <M-2> 2gt
+nnoremap <M-3> 3gt
+nnoremap <M-4> 4gt
+nnoremap <M-5> 5gt
+nnoremap <M-6> 6gt
+nnoremap <M-7> 7gt
+nnoremap <M-8> 8gt
+nnoremap <M-9> 9gt
 
 if isdirectory(resolve(expand(argv(0))))
   bd
@@ -200,18 +206,6 @@ if isdirectory(resolve(expand(argv(0))))
 endif
 
 au BufNewFile,BufRead *.php setlocal expandtab shiftwidth=4 softtabstop=4
-
-" Put at the very end of your .vimrc file.
-
-" function! PhpSyntaxOverride()
-"   hi! def link phpDocTags  phpDefine
-"   hi! def link phpDocParam phpType
-" endfunction
-"
-" augroup phpSyntaxOverride
-"   autocmd!
-"   autocmd FileType php call PhpSyntaxOverride()
-" augroup END
 
 nmap =j :%!python -m json.tool<CR>
 
