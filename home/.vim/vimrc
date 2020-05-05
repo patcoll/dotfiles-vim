@@ -177,6 +177,7 @@ nnoremap <leader>p :set paste! paste?<CR>
 
 " close tab
 nnoremap <leader>t :tabc<CR>
+nnoremap <C-w> :tabc<CR>
 
 " map tab to %, which jumps to the matching brace
 nnoremap <tab> %
