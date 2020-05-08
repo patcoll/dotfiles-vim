@@ -226,8 +226,5 @@ au BufRead,BufNewFile *.go se noet ci pi sts=0 sw=2 ts=2
 au BufRead,BufNewFile .env set filetype=sh
 au BufRead,BufNewFile .env.* set filetype=sh
 
-" Bundler Brewfile
-au BufNewFile,BufRead Brewfile set filetype=ruby
-
 " Ignore files
 au BufNewFile,BufRead .*ignore set filetype=conf
