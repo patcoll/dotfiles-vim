@@ -184,6 +184,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 nnoremap <C-t> :tabnew<CR>
+nnoremap <S-C-t> :tabnew<CR>
 
 " browse to tab to the left or right
 nnoremap <M-[> gT
