@@ -34,7 +34,11 @@ let g:ale_fixers = {
 \   'rust': ['rustfmt'],
 \   'elixir': ['mix_format'],
 \}
+let g:ale_pattern_options = {
+\   '.*node_modules/.*\.js$': {'ale_enabled': 0},
+\}
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_javascript_eslint_suppress_missing_config = 1
 nnoremap =f :ALEFix<cr>
 
 Plug 'tomtom/tcomment_vim'
@@ -230,3 +234,5 @@ au BufRead,BufNewFile .env.* set filetype=sh
 
 " Ignore files
 au BufNewFile,BufRead .*ignore set filetype=conf
+
+au BufNewFile,BufRead *.config set filetype=config
