@@ -45,6 +45,8 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-abolish'
 
+let g:airline_powerline_fonts = 1
+
 Plug 'vim-airline/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'bronson/vim-trailing-whitespace'
@@ -62,6 +64,9 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
+
+" swaywm
+Plug 'terminalnode/sway-vim-syntax'
 
 " syntax, indent, and filetype plugin files for git, gitcommit, gitconfig,
 " gitrebase, and gitsendemail
@@ -86,6 +91,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " {{{ Colorschemes
 Plug 'vim-scripts/twilight256.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 " }}}
 
 " typescript
@@ -98,9 +106,9 @@ let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' ch
 " GraphQL
 Plug 'jparise/vim-graphql'
 
-" Pick one of these two...
-Plug 'maxmellon/vim-jsx-pretty'
+" JSX
 let g:vim_jsx_pretty_highlight_close_tag = 1
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize plugin system
 call plug#end()
@@ -127,19 +135,31 @@ vmap <leader>/ :TComment<cr>
 nnoremap / /\v
 vnoremap / /\v
 
-colorscheme twilight256
+" Set this when better color support available in terminal emulator.
+set termguicolors
+
+if filereadable(expand("~/.vimrc_background"))
+  " let base16colorspace=256          " Remove this line if not necessary
+  source ~/.vimrc_background
+endif
+
+" Set colorscheme
+colorscheme dracula
+" colorscheme gruvbox
+
+" highlight Normal ctermbg=NONE
 
 " an inactive tab
-hi TabLine      ctermfg=255 ctermbg=42     cterm=NONE
+" hi TabLine      ctermfg=255 ctermbg=42     cterm=NONE
 " the selected tab
-hi TabLineSel   ctermfg=17  ctermbg=190  cterm=NONE
+" hi TabLineSel   ctermfg=17  ctermbg=190  cterm=NONE
 " the unused portion of the tab line (not enough tabs)
-hi TabLineFill  ctermfg=255  ctermbg=238     cterm=NONE
+" hi TabLineFill  ctermfg=255  ctermbg=238     cterm=NONE
 
-if has("gui_running")
-  colorscheme MyTwilight
-  set guifont=Monaco:h14
-endif
+" if has("gui_running")
+"   colorscheme MyTwilight
+"   set guifont=Monaco:h14
+" endif
 
 " map semicolon to colon for less typing
 nnoremap ; :
@@ -156,6 +176,7 @@ set wildmode=longest,list
 " Make vertical split bar line character be a single space.
 set fillchars+=vert:\|
 
+" Set this because otherwise it does some disruptive things in some modes.
 nnoremap K :set hlsearch! hlsearch?<CR>
 
 " leader-space will toggle hlsearch
