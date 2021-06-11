@@ -21,6 +21,9 @@ let g:workspace_undodir=$HOME . '/.vim/runtime/undodir/'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'godlygeek/tabular'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+nmap <C-P> :FZF<CR>
+
 Plug 'embear/vim-localvimrc'
 let g:localvimrc_persistent = 2
 let g:localvimrc_persistence_file = $HOME . '/.vim/runtime/.localvimrc_persistent'
