@@ -2,6 +2,9 @@ set nocompatible      " Use vim, no vi defaults
 set encoding=utf-8    " Set default encoding to UTF-8
 filetype off
 
+" Turn off code folding by default.
+set nofoldenable
+
 " Turn off background erase
 let &t_ut=''
 
