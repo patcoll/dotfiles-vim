@@ -40,6 +40,7 @@ let g:ale_fixers = {
 let g:ale_pattern_options = {
 \   '.*node_modules/.*\.js$': {'ale_enabled': 0},
 \}
+let g:ale_lint_on_enter = 'never'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_javascript_eslint_suppress_missing_config = 1
 nnoremap =f :ALEFix<cr>
