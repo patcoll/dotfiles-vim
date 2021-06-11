@@ -56,6 +56,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'danro/rename.vim'
+Plug 'christoomey/vim-sort-motion'
 
 " File formats
 Plug 'ap/vim-css-color', { 'for': 'css' }
